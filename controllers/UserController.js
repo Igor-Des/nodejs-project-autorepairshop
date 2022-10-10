@@ -47,7 +47,7 @@ export const register = async (req, res) => {
             message: 'Не удалось зарегистрироваться',
         })
     }
-}
+};
 
 export const login = async (req, res) => {
     try {
@@ -90,7 +90,7 @@ export const login = async (req, res) => {
             message: 'Не удалось авторизоваться',
         })
     }
-}
+};
 
 export const getMe = async (req, res) => {
     try {
@@ -112,4 +112,4 @@ export const getMe = async (req, res) => {
             message: 'Нет доступа',
         })
     }
-}
+};

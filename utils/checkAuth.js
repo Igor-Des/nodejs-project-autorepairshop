@@ -13,12 +13,12 @@ export default (req, res, next) => {
             next(); // для перехода в app.get('/auth/me) => req, res
         } catch (err) {
             return res.status(403).json({
-                message: 'Нет доступа',
+                message: 'Нет доступа!',
             })  
         }
     } else {
         return res.status(403).json({
-            message: 'Нет доступа',
+            message: `Нет доступа!! + ${token}`,
         })
     }
 

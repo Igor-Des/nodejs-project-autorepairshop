@@ -2,7 +2,7 @@ import express from 'express'; // эксперсс для сервера
 
 import mongoose from 'mongoose';
 
-import * as Validation from './validations.js';
+import { loginValidation, registerValidation, carCreateValidation} from './validations.js';
 
 import checkAuth from './utils/checkAuth.js'
 
@@ -21,19 +21,19 @@ const PORT = 3000;
 app.use(express.json()); // позволит читать json для запросов
 
 
-app.post('/auth/login', Validation.loginValidation, UserController.login);
-app.post('/auth/register', Validation.registerValidation, UserController.register);
+app.post('/auth/login', loginValidation, UserController.login);
+app.post('/auth/register', registerValidation, UserController.register);
 app.get('/auth/me', checkAuth, UserController.getMe);
 
 
 
 // CRUD FOR CAR SCHEMA:
 
-// app.get('/cars', CarController.getAll);
-// app.get('/cars/:id', CarController.getOne);
- app.post('/cars', CarController.create);
-// app.delete('/cars', CarController.remove);
-// app.patch('/cars', CarController.update);
+app.get('/cars', CarController.getAll);
+app.get('/cars/:id', CarController.getOne);
+app.post('/cars', checkAuth, carCreateValidation, CarController.create);
+app.delete('/cars/:id', CarController.remove);
+app.patch('/cars/:id', CarController.update);
 
 app.listen(PORT, (err) => {
     if (err) {

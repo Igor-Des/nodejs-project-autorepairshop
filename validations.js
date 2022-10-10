@@ -12,7 +12,7 @@ export const loginValidation = [
     body('password', 'Пароль должен быть минимум 5 символов').isLength({min: 5}),
 ];
 
-export const carValidation = [
+export const carCreateValidation = [
     body('brand', 'Укажите Brand автомобиля').isString(),
     body('color', 'Укажите Color автомобиля').isString(),
     body('year', 'Укажите year автомобиля').isString(),
