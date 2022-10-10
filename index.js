@@ -2,9 +2,9 @@ import express from 'express'; // эксперсс для сервера
 
 import mongoose from 'mongoose';
 
-import { loginValidation, registerValidation, carCreateValidation} from './validations.js';
+import { loginValidation, registerValidation, carCreateValidation, mechanicCreateValidation} from './validations.js';
 
-import { UserController, CarController} from './controllers/index.js';
+import { UserController, CarController, MechanicController} from './controllers/index.js';
 
 import { checkAuth, handleValidationErrors} from './utils/index.js';
 
@@ -35,6 +35,16 @@ app.get('/cars/:id', CarController.getOne);
 app.post('/cars', checkAuth, carCreateValidation, handleValidationErrors, CarController.create);
 app.delete('/cars/:id', checkAuth, CarController.remove);
 app.patch('/cars/:id', checkAuth, carCreateValidation, handleValidationErrors, CarController.update);
+
+
+// CRUD FOR MECHANIC SCHEMA:
+app.get('/mechanics', MechanicController.getAll);
+app.get('/mechanics/:id', MechanicController.getOne);
+app.post('/mechanics', checkAuth, mechanicCreateValidation, handleValidationErrors, MechanicController.create);
+app.delete('/mechanics/:id', checkAuth, MechanicController.remove);
+app.patch('/mechanics/:id', checkAuth, mechanicCreateValidation, handleValidationErrors, MechanicController.update);
+
+
 
 app.listen(PORT, (err) => {
     if (err) {

@@ -19,3 +19,8 @@ export const carCreateValidation = [
     body('VIN', 'Укажите VIN автомобиля').isLength({ min: 5 }).isString(),
     body('engineNumber', 'Укажите engineNumber автомобиля').isLength({ min: 5 }).isString(),
 ];
+
+export const mechanicCreateValidation = [
+    body('fullName', 'Укажите имя').isLength({min: 3}),
+    body('qualification', 'Укажите квалификацию механика').isLength({min: 3}),
+]
