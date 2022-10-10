@@ -13,5 +13,9 @@ export const loginValidation = [
 ];
 
 export const carValidation = [
-    body()
-]
+    body('brand', 'Укажите Brand автомобиля').isString(),
+    body('color', 'Укажите Color автомобиля').isString(),
+    body('year', 'Укажите year автомобиля').isString(),
+    body('VIN', 'Укажите VIN автомобиля').isLength({ min: 5 }).isString(),
+    body('engineNumber', 'Укажите engineNumber автомобиля').isLength({ min: 5 }).isString(),
+];
