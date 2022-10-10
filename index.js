@@ -2,9 +2,9 @@ import express from 'express'; // эксперсс для сервера
 
 import mongoose from 'mongoose';
 
-import { loginValidation, registerValidation, carCreateValidation, mechanicCreateValidation} from './validations.js';
+import { loginValidation, registerValidation, carCreateValidation, mechanicCreateValidation, ownerCreateValidation} from './validations.js';
 
-import { UserController, CarController, MechanicController} from './controllers/index.js';
+import { UserController, CarController, MechanicController, OwnerController} from './controllers/index.js';
 
 import { checkAuth, handleValidationErrors} from './utils/index.js';
 
@@ -43,6 +43,13 @@ app.get('/mechanics/:id', MechanicController.getOne);
 app.post('/mechanics', checkAuth, mechanicCreateValidation, handleValidationErrors, MechanicController.create);
 app.delete('/mechanics/:id', checkAuth, MechanicController.remove);
 app.patch('/mechanics/:id', checkAuth, mechanicCreateValidation, handleValidationErrors, MechanicController.update);
+
+// CRUD FOR OWNER SCHEMA:
+app.get('/owners', OwnerController.getAll);
+app.get('/owners/:id', OwnerController.getOne);
+app.post('/owners', checkAuth, ownerCreateValidation, handleValidationErrors, OwnerController.create);
+app.delete('/owners/:id', checkAuth, OwnerController.remove);
+app.patch('/owners/:id', checkAuth, ownerCreateValidation, handleValidationErrors, OwnerController.update);
 
 
 

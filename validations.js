@@ -24,3 +24,8 @@ export const mechanicCreateValidation = [
     body('fullName', 'Укажите имя').isLength({min: 3}),
     body('qualification', 'Укажите квалификацию механика').isLength({min: 3}),
 ]
+
+export const ownerCreateValidation = [
+    body('fullName', 'Укажите имя').isLength({min: 3}),
+    body('phone', 'Укажите номер телефона(больше 8 символов) для владельца').isLength({min: 8}),
+]
