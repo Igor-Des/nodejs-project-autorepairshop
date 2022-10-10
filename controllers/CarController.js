@@ -36,8 +36,6 @@ export const getAll = async (req, res) => {
     }
 };
 
-
-
 export const getOne = async (req, res) => {
     try {
         const carId = req.params.id;
@@ -108,7 +106,6 @@ export const remove = async (req, res) => {
     }
 };
 
-
 export const update = async (req, res) => {
     try {
         const carId = req.params.id;
@@ -131,18 +128,7 @@ export const update = async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).json({
-            message: 'Не удалось обновить данные машины',
+            message: 'Не удалось обновить данные машины!',
         });
     }
 };
-
-// export const name = async (req, res) => {
-//     try {
-
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json({
-//             message: 'Не удалось создать машину',
-//         });
-//     }
-// };
