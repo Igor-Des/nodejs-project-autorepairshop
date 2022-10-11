@@ -1,14 +1,16 @@
+import { application } from "express";
 import CarModel from "../models/Car.js";
 
 export const create = async (req, res) => {
     try {
+
         const doc = new CarModel({
             brand: req.body.brand,
             color: req.body.color,
             year: req.body.year,
             VIN: req.body.VIN,
             engineNumber: req.body.engineNumber,
-            user: req.userId,
+            owner: req.body.ownerId
         });
 
 
@@ -25,7 +27,7 @@ export const create = async (req, res) => {
 
 export const getAll = async (req, res) => {
     try {
-        const cars = await CarModel.find().populate('user').exec();
+        const cars = await CarModel.find().populate('owner').exec();
 
         res.json(cars);
     } catch (err) {
@@ -119,7 +121,7 @@ export const update = async (req, res) => {
             year: req.body.year,
             VIN: req.body.VIN,
             engineNumber: req.body.engineNumber,
-            user: req.userId,
+            owner: req.ownerId,
         });
 
         res.json({

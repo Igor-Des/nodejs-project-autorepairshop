@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const CarSchema = new mongoose.Schema(
+const PaymentSchema = new mongoose.Schema(
     {
         brand: {
             type: String,
@@ -35,4 +35,4 @@ const CarSchema = new mongoose.Schema(
     }
 );
 
-export default mongoose.model('Car', CarSchema);
+export default mongoose.model('Payment', PaymentSchema);

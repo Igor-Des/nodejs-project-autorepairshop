@@ -10,7 +10,7 @@ export default (req, res, next) => {
 
             req.userId = decoded._id;
 
-            next(); // для перехода в app.get('/auth/me) => req, res
+            next(); // for next middleware
         } catch (err) {
             return res.status(403).json({
                 message: 'Нет доступа!',
@@ -21,6 +21,4 @@ export default (req, res, next) => {
             message: `Нет доступа!! + ${token}`,
         })
     }
-
-    // next(); // для перехода в app.get('/auth/me) => req, res
 }

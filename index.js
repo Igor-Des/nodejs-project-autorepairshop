@@ -14,16 +14,24 @@ mongoose
     .catch((err) => console.log('Db error ', err));
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 
 app.use(express.json()); // позволит читать json для запросов
+
+
+app.get('/api', (req, res) => {
+    res.json({
+        message: "Hello from backend express.js"
+    });
+});
+
+
 
 // мы делаем валидацию данных, если есть ошибки есть выводим их, если ошибок нет то выполняем логин/регу
 app.post('/auth/login', loginValidation, handleValidationErrors, UserController.login);
 app.post('/auth/register', registerValidation, handleValidationErrors, UserController.register);
 app.get('/auth/me', checkAuth, UserController.getMe);
-
 
 
 // CRUD FOR CAR SCHEMA:

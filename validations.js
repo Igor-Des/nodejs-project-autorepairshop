@@ -13,7 +13,6 @@ export const loginValidation = [
 ];
 
 export const carCreateValidation = [
-    body('brand', 'Укажите Brand автомобиля').isString(),
     body('color', 'Укажите Color автомобиля').isString(),
     body('year', 'Укажите year автомобиля').isString(),
     body('VIN', 'Укажите VIN автомобиля').isLength({ min: 5 }).isString(),
