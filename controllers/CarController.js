@@ -10,7 +10,7 @@ export const create = async (req, res) => {
             year: req.body.year,
             VIN: req.body.VIN,
             engineNumber: req.body.engineNumber,
-            owner: req.body.ownerId
+            user: req.body.userId
         });
 
 
@@ -27,7 +27,7 @@ export const create = async (req, res) => {
 
 export const getAll = async (req, res) => {
     try {
-        const cars = await CarModel.find().populate('owner').exec();
+        const cars = await CarModel.find().populate('user').exec();
 
         res.json(cars);
     } catch (err) {
@@ -121,7 +121,7 @@ export const update = async (req, res) => {
             year: req.body.year,
             VIN: req.body.VIN,
             engineNumber: req.body.engineNumber,
-            owner: req.ownerId,
+            user: req.userId,
         });
 
         res.json({

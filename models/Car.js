@@ -24,9 +24,9 @@ const CarSchema = new mongoose.Schema(
             require: true,
             unique: true,
         },
-        owner: {
+        user: {
             type: mongoose.Schema.Types.ObjectId, // по Id
-            ref: 'Owner', // ссылается на модель Owner
+            ref: 'User', // ссылается на модель Owner
             require: true,
         }
     },

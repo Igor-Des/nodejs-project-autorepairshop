@@ -2,9 +2,9 @@ import express from 'express'; // эксперсс для сервера
 
 import mongoose from 'mongoose';
 
-import { loginValidation, registerValidation, carCreateValidation, mechanicCreateValidation, ownerCreateValidation} from './validations.js';
+import { loginValidation, registerValidation, carCreateValidation} from './validations.js';
 
-import { UserController, CarController, MechanicController, OwnerController} from './controllers/index.js';
+import { UserController, CarController, PaymentController} from './controllers/index.js';
 
 import { checkAuth, handleValidationErrors} from './utils/index.js';
 
@@ -14,7 +14,7 @@ mongoose
     .catch((err) => console.log('Db error ', err));
 
 const app = express();
-const PORT = 3001;
+const PORT = 3000;
 
 
 app.use(express.json()); // позволит читать json для запросов
@@ -45,20 +45,12 @@ app.delete('/cars/:id', checkAuth, CarController.remove);
 app.patch('/cars/:id', checkAuth, carCreateValidation, handleValidationErrors, CarController.update);
 
 
-// CRUD FOR MECHANIC SCHEMA:
-app.get('/mechanics', MechanicController.getAll);
-app.get('/mechanics/:id', MechanicController.getOne);
-app.post('/mechanics', checkAuth, mechanicCreateValidation, handleValidationErrors, MechanicController.create);
-app.delete('/mechanics/:id', checkAuth, MechanicController.remove);
-app.patch('/mechanics/:id', checkAuth, mechanicCreateValidation, handleValidationErrors, MechanicController.update);
-
 // CRUD FOR OWNER SCHEMA:
-app.get('/owners', OwnerController.getAll);
-app.get('/owners/:id', OwnerController.getOne);
-app.post('/owners', checkAuth, ownerCreateValidation, handleValidationErrors, OwnerController.create);
-app.delete('/owners/:id', checkAuth, OwnerController.remove);
-app.patch('/owners/:id', checkAuth, ownerCreateValidation, handleValidationErrors, OwnerController.update);
-
+app.get('/users', UserController.getAll);
+app.get('/users/:id', UserController.getOne);
+app.post('/users', checkAuth, registerValidation, handleValidationErrors, UserController.create);
+app.delete('/users/:id', checkAuth, UserController.remove);
+app.patch('/users/:id', checkAuth, registerValidation, handleValidationErrors, UserController.update);
 
 
 app.listen(PORT, (err) => {
