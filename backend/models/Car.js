@@ -17,12 +17,10 @@ const CarSchema = new mongoose.Schema(
         VIN: {
             type: String,
             require: true,
-            unique: true,
         },
         engineNumber: {
             type: String,
             require: true,
-            unique: true,
         },
         user: {
             type: mongoose.Schema.Types.ObjectId, // по Id

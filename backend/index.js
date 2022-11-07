@@ -1,5 +1,5 @@
 import express from 'express'; // эксперсс для сервера
-
+import cors from 'cors'; // for axios(fetch) on frontend
 import mongoose from 'mongoose';
 
 import { loginValidation, registerValidation, carCreateValidation} from './validations.js';
@@ -14,11 +14,11 @@ mongoose
     .catch((err) => console.log('Db error ', err));
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 
 app.use(express.json()); // позволит читать json для запросов
-
+app.use(cors());
 
 app.get('/api', (req, res) => {
     res.json({
