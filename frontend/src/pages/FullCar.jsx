@@ -1,27 +1,40 @@
+import axios from "axios";
 import React from "react";
+import { useParams } from 'react-router-dom';
 
 import { Car } from "../components/Car";
 
 export const FullCar = () => {
+  const [data, setData] = React.useState();
+  const [isLoading, setLoading] = React.useState(true);
+  const { id } = useParams();
+
+  React.useEffect(() => {
+    axios.get(`/cars/${id}`).then(res => {
+      setData(res.data);
+      setLoading(false);
+    }).catch((err) => {
+      console.warn(err);
+      alert('Ошибка при получении автомобиля');
+    });
+  }, [])
+  
+  if (isLoading) {
+    return <Car isLoading={isLoading} isFullCar/>;
+  }
+
   return (
     <>
     <Car
-        id={1}
-        brand = "BMW"
-        color = "Blue"
-        year = {2022}
-        VIN = "45H45F4FERDFSG"
-        engineNumber= "5DFGHDFGSERG3F4ERF"
-        user={
-            {
-                fullName: "Ivan",
-                email: "admin@admin.ru",
-                role: "Owner"
-            }
-        }
+        id={data._id}
+        brand = {data.brand}
+        color = {data.color}
+        year = {data.year}
+        VIN = {data.VIN}
+        engineNumber= {data.engineNumber}
+        user={data.user}
         isFullCar
     >
-        <p>Hello World! Its react app</p>
     </Car>
     </>
   );

@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
+
 import Button from "@mui/material/Button";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
@@ -17,7 +19,8 @@ export const Car = ({
     VIN,
     engineNumber,
     user,
-    isFullCar
+    isFullCar,
+    isLoading
 }) => {
     const onClickMoreInfo = () => { };
 
@@ -41,12 +44,12 @@ export const Car = ({
                 <UserInfo {...user}/>
             </div>
             <div className={styles.moreInfo}>
-                <a href={`/cars/${id}/getOne`} className = {styles.moreInfo_link}>
+                <Link to={`/cars/${id}`} className = {styles.moreInfo_link}>
                 <span className={styles.textMoreInfo_icon}>Узнать подробнее</span>
                     <IconButton onClick={onClickMoreInfo} className={styles.moreInfo__icon}>
                         <InfoIcon />
                     </IconButton>
-                </a>
+                </Link>
             </div>
         </div>
     );

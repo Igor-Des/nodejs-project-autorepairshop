@@ -22,11 +22,12 @@
 }
 
 .button_import__reg {    
-    background-color: rgb(76, 175, 175);  
-    color: #262626;
+    background-color: rgb(76, 175, 175) !important;    
+    color: #262626 !important;
     transition: .2s linear;
+    font-weight: bold !important;  
 }
 .button_import__reg:hover {
-    color: #FFFFFF;
-    background-color: rgb(32, 128, 128);
+    color: #FFFFFF !important;  
+    background-color: rgb(32, 128, 128) !important;  
 }

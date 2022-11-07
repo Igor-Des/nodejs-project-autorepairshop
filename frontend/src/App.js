@@ -1,17 +1,31 @@
+import { Routes, Route } from 'react-router-dom';
 import Container from "@mui/material/Container";
 
 import { Header, Car, UserInfo } from "./components";
-import { Registration, Login, FullCar } from "./pages";
+import { Registration, Login, FullCar, Home } from "./pages";
 
 function App() {
   return (
     <>
       <Header />
       <Container maxWidth="lg">
-        {/* <Login /> */}
+        <Routes>
+          <Route path="/" element = { <Home /> }/>
+          <Route path="/cars/:id" element = { <FullCar /> }/>
+          <Route path="/login" element = { <Login /> }/>
+          <Route path="/register" element = { <Registration /> }/>
+        </Routes>
+      </Container>
+    </>
+  );
+}
+
+export default App;
+
+ {/* <Login /> */}
         {/* <Registration /> */}
         {/* <UserInfo /> */}
-        <FullCar />
+        {/* <FullCar />
         <Car
           id={1}
           brand="BMW"
@@ -95,12 +109,4 @@ function App() {
               email: "noname@admin.ru",
               role: "Admin"
             }
-          } />
-
-
-      </Container>
-    </>
-  );
-}
-
-export default App;
+          } /> */}

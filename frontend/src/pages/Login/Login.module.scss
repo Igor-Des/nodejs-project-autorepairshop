@@ -15,14 +15,13 @@
   margin-bottom: 30px !important;
 }
 
-.button_import {    
-  &__login {
-    background-color: rgb(76, 175, 175);  
-    color: #262626;
+.button_import__login {   
+    background-color: rgb(76, 175, 175) !important;  
+    color: #262626 !important;
     transition: .2s linear;
-  }
-  &__login:hover {
-    color: #FFFFFF;
-    background-color: rgb(32, 128, 128);
-  }
+    font-weight: bold !important;  
 }
+.button_import__login:hover {
+    color: #FFFFFF !important;  
+    background-color: rgb(32, 128, 128) !important;  
+  }
