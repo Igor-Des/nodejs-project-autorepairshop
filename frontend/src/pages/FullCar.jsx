@@ -22,7 +22,7 @@ export const FullCar = () => {
   if (isLoading) {
     return <Car isLoading={isLoading} isFullCar/>;
   }
-
+  console.log(data.user);
   return (
     <>
     <Car

@@ -1,11 +1,12 @@
 body {
     background-color: red;
 }
+
 .root {
     background-color: #fff;
     margin: 15px;
     border-radius: 20px;
-    
+
     width: 230px;
     height: 300px;
     padding: 20px;
@@ -14,44 +15,57 @@ body {
 
     display: inline-block;
     transition: .3s linear;
+
     .car_model_info {
         display: none;
     }
+
+    .comeToHome {
+        display: none;
+    }
+
     .car_img {
-        border: 1px solid rgba(0,0,0,.05);
+        border: 1px solid rgba(0, 0, 0, .05);
         border-radius: 2px;
         width: 180px;
         height: 130px;
     }
+
     .car_model {
         color: rgb(30, 157, 231);
         margin: 10px 0px;
     }
+
     .car_model a {
-            color: rgb(30, 157, 231)
+        color: rgb(30, 157, 231)
     }
+
     .car_info p {
         font-size: 14px;
     }
+
     a {
         text-decoration: none;
     }
-    
-    .moreInfo__icon, 
-    .textMoreInfo_icon {    
+
+    .moreInfo__icon,
+    .textMoreInfo_icon {
         text-decoration: none;
         color: #262626;
         font-size: 14px;
-    
+
         transition: .2s linear;
     }
-    
+
     .moreInfo_link:hover {
-        .textMoreInfo_icon, .moreInfo__icon {
+
+        .textMoreInfo_icon,
+        .moreInfo__icon {
             color: rgb(192, 21, 21);
         }
-    }    
+    }
 }
+
 .root:hover {
     outline: 1px solid rgba(0, 0, 0, .1);
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -62,7 +76,7 @@ body {
     margin: 40px;
     border-radius: 10px;
     margin: 0 auto;
-    
+
     width: 1100px;
     height: 100%;
     padding: 20px;
@@ -72,37 +86,59 @@ body {
     transition: .3s linear;
 
     .car_img {
-        border: 1px solid rgba(0,0,0,.05);
+        border: 1px solid rgba(0, 0, 0, .05);
         border-radius: 2px;
         width: 550px;
         height: 400px;
         box-shadow: rgba(99, 99, 99, 0.2) 2px 2px 2px 2px;
+        object-fit:cover;
     }
+
     .car_model {
         margin-top: 20px;
         color: rgb(30, 157, 231)
     }
+
     .car_model a span {
         font-size: 24px;
     }
-    
+
     .car_model a {
-            color: rgb(30, 157, 231)
+        color: rgb(30, 157, 231)
     }
+
     a {
         text-decoration: none;
     }
+
     .userInfo {
         display: inline-block;
     }
+
     .car_model_info {
         display: block;
         font-size: 20px;
     }
+
     .moreInfo {
         display: none;
     }
-    
+
+    .comeToHome {
+        display: block;
+        margin: 30px auto;
+    }
+
+    .buttonToHome {
+        color: #262626 !important;        
+        background-color: rgb(76, 175, 175);    
+    }
+
+    .buttonToHome:hover {
+        color: #fff !important;
+        background-color: rgb(32, 128, 128) !important;
+    }
+
     outline: 1px solid rgba(0, 0, 0, .1);
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
