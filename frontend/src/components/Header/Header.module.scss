@@ -1,0 +1,53 @@
+
+.root {
+  background-color: #262626;
+  margin: 0 auto;
+  padding: 0 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 30px;
+}
+ 
+.inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons {  
+  display: flex;
+  ul {
+    display: flex;
+    li {
+      list-style-type: none;
+    }
+  }
+  a {
+    text-decoration: none;
+  }  
+  button {
+    margin-left: 10px;
+    color: #A4A4A4;
+  }
+  button:hover {
+    color: #fff;
+  }
+  .button_import {    
+    &__enter {
+      background-color: rgb(76, 175, 175);  
+      color: #262626;
+      transition: .2s linear;
+    }
+    &__enter:hover {
+      color: #FFFFFF;
+      background-color: rgb(32, 128, 128);
+    }
+    &__output {
+      background-color: rgb(175, 76, 76); 
+      color: #262626; 
+      transition: .2s linear;   
+    } 
+    &__output:hover {
+      color: #FFFFFF;
+      background-color: rgb(128, 32, 32);
+    } 
+  }
+}
