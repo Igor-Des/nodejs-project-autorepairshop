@@ -6,6 +6,10 @@ export const fetchCars = createAsyncThunk('cars/fetchCars', async () => {
     return data;
 });
 
+export const fetchRemoveCar = createAsyncThunk('cars/fetchRemoveCar', async (id) => 
+    axios.delete(`/cars/${id}`),
+);
+
 
 const initialState = {
     cars: {
@@ -19,6 +23,7 @@ const carsSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: {
+        // Получение машин
         [fetchCars.pending]: (state) => {
             state.cars.items = [];
             state.cars.status = 'loading';
@@ -30,8 +35,12 @@ const carsSlice = createSlice({
         [fetchCars.rejected]: (state) => {
             state.cars.items = [];
             state.cars.status = 'error';
-        }
-    }
+        },
+        // Удаление машины
+        [fetchRemoveCar.pending]: (state, action) => {
+            state.cars.items = state.cars.items.filter(obj => obj._id !== action.meta.arg);
+        },
+    },
 })
 
 export const carsReducer = carsSlice.reducer;

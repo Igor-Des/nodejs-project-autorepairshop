@@ -30,24 +30,4 @@
   button:hover {
     color: #fff;
   }
-  .button_import {    
-    &__enter {
-      background-color: rgb(76, 175, 175);  
-      color: #262626;
-      transition: .2s linear;
-    }
-    &__enter:hover {
-      color: #FFFFFF;
-      background-color: rgb(32, 128, 128);
-    }
-    &__output {
-      background-color: rgb(175, 76, 76); 
-      color: #262626; 
-      transition: .2s linear;   
-    } 
-    &__output:hover {
-      color: #FFFFFF;
-      background-color: rgb(128, 32, 32);
-    } 
-  }
 }

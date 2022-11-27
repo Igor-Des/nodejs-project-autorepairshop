@@ -18,7 +18,7 @@ export default (req, res, next) => {
         }
     } else {
         return res.status(403).json({
-            message: `Нет доступа!! + ${token}`,
+            message: `Нет доступа!! - token? ${token}`,
         })
     }
 }

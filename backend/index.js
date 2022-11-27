@@ -40,17 +40,17 @@ app.get('/cars', CarController.getAll);
 app.get('/cars/:id', CarController.getOne);
 // защищенные роуты для авторизованных юзеров(checkAuth) => проверка на корректные данные(carCreateValidation) =>
 // если есть ошибки выводим(handleValidationErrors) => если нет ошибок выполняем CRUD
-app.post('/cars', checkAuth, carCreateValidation, handleValidationErrors, CarController.create);
-app.delete('/cars/:id', checkAuth, CarController.remove);
-app.patch('/cars/:id', checkAuth, carCreateValidation, handleValidationErrors, CarController.update);
+app.post('/cars', carCreateValidation, handleValidationErrors, CarController.create);
+app.delete('/cars/:id', CarController.remove);
+app.patch('/cars/:id', carCreateValidation, handleValidationErrors, CarController.update);
 
 
 // CRUD FOR OWNER SCHEMA:
 app.get('/users', UserController.getAll);
 app.get('/users/:id', UserController.getOne);
-app.post('/users', checkAuth, registerValidation, handleValidationErrors, UserController.create);
-app.delete('/users/:id', checkAuth, UserController.remove);
-app.patch('/users/:id', checkAuth, registerValidation, handleValidationErrors, UserController.update);
+app.post('/users', registerValidation, handleValidationErrors, UserController.create);
+app.delete('/users/:id', UserController.remove);
+app.patch('/users/:id', registerValidation, handleValidationErrors, UserController.update);
 
 
 app.listen(PORT, (err) => {
