@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from '../../axios';
+import axios from '../../axios.js';
 
 export const fetchCars = createAsyncThunk('cars/fetchCars', async () => {
     const { data } = await axios.get('/cars');
@@ -7,7 +7,7 @@ export const fetchCars = createAsyncThunk('cars/fetchCars', async () => {
 });
 
 export const fetchRemoveCar = createAsyncThunk('cars/fetchRemoveCar', async (id) => 
-    axios.delete(`/cars/${id}`),
+    axios.patch(`/cars/${id}`),
 );
 
 
@@ -23,7 +23,7 @@ const carsSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: {
-        // Получение машин
+        // Покупка билета. изменение user null => ID
         [fetchCars.pending]: (state) => {
             state.cars.items = [];
             state.cars.status = 'loading';
